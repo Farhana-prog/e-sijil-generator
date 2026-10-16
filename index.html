@@ -228,8 +228,11 @@ bottom: -40px;
 #previewLogo img {
     width: 120px;
     height: 120px;
+    max-width: 350px;
+    max-height: 350px;
     object-fit: contain;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
+display: block;
 }
 
 #previewTandatangan img {
@@ -247,7 +250,7 @@ bottom: -40px;
     #previewJenis {
         font-family: Georgia, serif;
         font-size: 42px;
-        margin: 20px 0;
+        margin: 5px 0 20px;
         letter-spacing: 2px;
     }
 
@@ -289,6 +292,7 @@ bottom: -40px;
 }
 
     #previewJawatan {
+white-space: pre-line;
     margin-top: 2px;
     margin-bottom: 0;
     font-size: 16px;
@@ -297,8 +301,7 @@ bottom: -40px;
 #garisanTandatangan {
     width: 220px;
     border-top: 1.5px solid #000;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin: 15px auto 5px auto;
 }
 
 #bahagianTandatangan {
@@ -780,6 +783,44 @@ body.cetak-batch #batchSijil {
 
 <br><br>
 
+<div id="pilihanBarisPelantikan" style="display:none;">
+    <label>Susunan Tajuk Sijil Pelantikan</label><br><br>
+
+    <label>
+        <input type="radio" name="barisPelantikan" value="sebaris">
+        Sebaris
+    </label>
+
+    &nbsp;&nbsp;
+
+    <label>
+        <input type="radio" name="barisPelantikan" value="duabaris" checked>
+        2 Baris
+    </label>
+
+<br><br>
+
+<label>Saiz Tajuk Sijil Pelantikan</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizTajukPelantikan"
+           min="30"
+           max="70"
+           value="52"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizTajukPelantikan">52 px</span>
+</div>
+
+</div>
+
+<br><br>
+
     <br><br>
 
     <label>Pilihan Fon Tajuk Sijil</label>
@@ -813,6 +854,25 @@ body.cetak-batch #batchSijil {
 
     <br><br>
 
+<label>Saiz Logo</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizLogo"
+           min="60"
+           max="350"
+           value="120"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizLogo">120 px</span>
+</div>
+
+<br><br>
+
 <label>Logo Watermark</label><br>
 <input type="file" id="logoWatermark" accept="image/*">
 
@@ -828,6 +888,25 @@ body.cetak-batch #batchSijil {
     <input type="text" id="ayatPengenalan"
            placeholder="Contoh: Dengan ini diperakui bahawa">
 
+<br><br>
+
+<label>Saiz Ayat Pengenalan</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizAyatPengenalan"
+           min="12"
+           max="40"
+           value="16"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizAyatPengenalan">16 px</span>
+</div>
+
     <br><br>
 
    <div id="bahagianPenerima">
@@ -842,6 +921,25 @@ body.cetak-batch #batchSijil {
     <p id="panduanPenerima">
         Masukkan nama seorang penerima.
     </p>
+
+<br><br>
+
+<label>Saiz Nama Penerima</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizNamaPenerima"
+           min="20"
+           max="60"
+           value="36"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizNamaPenerima">36 px</span>
+</div>
 
 </div>
 
@@ -859,6 +957,25 @@ body.cetak-batch #batchSijil {
 
     <br><br>
 
+<label>Saiz No. Kad Pengenalan</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizIC"
+           min="16"
+           max="50"
+           value="32"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizIC">32 px</span>
+</div>
+
+<br><br>
+
 </div>
 
     <label>Ayat Sebelum Nama Program</label><br>
@@ -867,11 +984,54 @@ body.cetak-batch #batchSijil {
 
     <br><br>
 
+<label>Saiz Ayat Sebelum Nama Program</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizAyatProgram"
+           min="12"
+           max="40"
+           value="16"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizAyatProgram">16 px</span>
+</div>
+
+<br><br>
+
     <label>Nama Program / Pencapaian</label><br>
-    <input type="text" id="namaProgram"
-           placeholder="Contoh: Program Kepimpinan Pelajar 2026">
+    <textarea id="namaProgram"
+          rows="2"
+          placeholder="Contoh: Program Kepimpinan Pelajar 2026"></textarea>
+
+<p id="panduanNamaProgram">
+    Masukkan nama program / pencapaian.
+</p>
 
     <br><br>
+
+<label>Saiz Nama Program / Pencapaian</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizNamaProgram"
+           min="20"
+           max="60"
+           value="36"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizNamaProgram">36 px</span>
+</div>
+
+<br><br>
 
 <div id="bahagianAyatTambahan">
 
@@ -880,6 +1040,26 @@ body.cetak-batch #batchSijil {
            placeholder="Contoh: bagi sesi 2026/2027">
 
     <br><br>
+
+<label>Saiz Ayat Selepas Nama Program</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizAyatTambahan"
+           min="12"
+           max="40"
+           value="24"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizAyatTambahan">24 px</span>
+</div>
+
+<br><br>
+
 
 </div>
 
@@ -913,8 +1093,31 @@ body.cetak-batch #batchSijil {
     <br><br>
 
     <label>Jawatan Penandatangan</label><br>
-    <input type="text" id="jawatanPenandatangan"
-           placeholder="Contoh: Pengetua">
+
+<textarea id="jawatanPenandatangan"
+          rows="2"
+          placeholder="Contoh:
+Pengetua
+SMK Seri Maju"></textarea>
+
+<br><br>
+
+<label>Saiz Jawatan Penandatangan</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizJawatan"
+           min="12"
+           max="40"
+           value="16"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizJawatan">16 px</span>
+</div>
 
     <br><br>
 
@@ -922,6 +1125,25 @@ body.cetak-batch #batchSijil {
     <input type="file" id="tandatangan" accept="image/*">
 
     <br><br>
+
+<label>Saiz Tandatangan</label><br><br>
+
+<div style="display:flex; align-items:center; gap:12px; max-width:450px;">
+    <span>Kecil</span>
+
+    <input type="range"
+           id="saizTandatangan"
+           min="50"
+           max="250"
+           value="120"
+           style="flex:1;">
+
+    <span>Besar</span>
+
+    <span id="nilaiSaizTandatangan">120 px</span>
+</div>
+
+<br><br>
 
 </div>
 
@@ -1038,6 +1260,15 @@ const modSijil = document.getElementById("modSijil");
 
     const jenisSijil = document.getElementById("jenisSijil");
 
+const pilihanBarisPelantikan =
+    document.getElementById("pilihanBarisPelantikan");
+
+const saizTajukPelantikan =
+    document.getElementById("saizTajukPelantikan");
+
+const nilaiSaizTajukPelantikan =
+    document.getElementById("nilaiSaizTajukPelantikan");
+
 const warnaPelantikan = document.getElementById("warnaPelantikan");
 const bahagianWarnaPelantikan =
     document.getElementById("bahagianWarnaPelantikan");
@@ -1047,14 +1278,57 @@ const bahagianWarnaPelantikan =
 
     const namaSekolah = document.getElementById("namaSekolah");
     const ayatPengenalan = document.getElementById("ayatPengenalan");
+
+const saizAyatPengenalan =
+    document.getElementById("saizAyatPengenalan");
+
+const nilaiSaizAyatPengenalan =
+    document.getElementById("nilaiSaizAyatPengenalan");
+
     const senaraiPenerima = document.getElementById("senaraiPenerima");
+
+const saizNamaPenerima =
+    document.getElementById("saizNamaPenerima");
+
+const nilaiSaizNamaPenerima =
+    document.getElementById("nilaiSaizNamaPenerima");
+
+const saizIC =
+    document.getElementById("saizIC");
+
+const nilaiSaizIC =
+    document.getElementById("nilaiSaizIC");
 
 const noIC = document.getElementById("noIC");
 const bahagianIC = document.getElementById("bahagianIC");
 
     const ayatProgram = document.getElementById("ayatProgram");
+
+const saizAyatProgram =
+    document.getElementById("saizAyatProgram");
+
+const nilaiSaizAyatProgram =
+    document.getElementById("nilaiSaizAyatProgram");
+
     const namaProgram = document.getElementById("namaProgram");
+
+const panduanNamaProgram =
+    document.getElementById("panduanNamaProgram");
+
+const saizNamaProgram =
+    document.getElementById("saizNamaProgram");
+
+const nilaiSaizNamaProgram =
+    document.getElementById("nilaiSaizNamaProgram");
+
 const ayatTambahan = document.getElementById("ayatTambahan");
+
+const saizAyatTambahan =
+    document.getElementById("saizAyatTambahan");
+
+const nilaiSaizAyatTambahan =
+    document.getElementById("nilaiSaizAyatTambahan");
+
     const tarikh = document.getElementById("tarikh");
     const tempat = document.getElementById("tempat");
     const penganjur = document.getElementById("penganjur");
@@ -1062,8 +1336,28 @@ const ayatTambahan = document.getElementById("ayatTambahan");
     const namaPenandatangan = document.getElementById("namaPenandatangan");
     const jawatanPenandatangan = document.getElementById("jawatanPenandatangan");
 
+const saizJawatan =
+    document.getElementById("saizJawatan");
+
+const nilaiSaizJawatan =
+    document.getElementById("nilaiSaizJawatan");
+
+const saizTandatangan =
+    document.getElementById("saizTandatangan");
+
+const nilaiSaizTandatangan =
+    document.getElementById("nilaiSaizTandatangan");
+
     // Fungsi kemas kini pratonton
 function updatePreview() {
+
+// Paparkan pilihan susunan tajuk untuk Sijil Penghargaan sahaja
+// Paparkan pilihan susunan tajuk untuk Sijil Pelantikan sahaja
+if (jenisSijil.value === "Sijil Pelantikan") {
+    pilihanBarisPelantikan.style.display = "block";
+} else {
+    pilihanBarisPelantikan.style.display = "none";
+}
 
     // Orientasi sijil
     const sijil = document.getElementById("sijilPreview");
@@ -1083,8 +1377,11 @@ bahagianWarnaPelantikan.style.display = "block";
     document.getElementById("previewIC").textContent =
     noIC.value || "-";
 
-document.getElementById("previewJenis").style.fontSize = "52px";
-document.getElementById("previewIC").style.fontSize = "32px";
+document.getElementById("previewJenis").style.fontSize =
+    saizTajukPelantikan.value + "px";
+
+document.getElementById("previewIC").style.fontSize =
+    saizIC.value + "px";
 
 document.getElementById("previewIC").style.fontFamily = fontTajuk.value;
 
@@ -1115,8 +1412,8 @@ if (orientasi.value === "Portrait") {
     sijil.style.maxWidth = "700px";
     sijil.style.aspectRatio = "210 / 297";
 
-    sijil.style.justifyContent = "space-evenly";
-sijil.style.paddingTop = "50px";
+    sijil.style.justifyContent = "flex-start";
+sijil.style.paddingTop = "20px";
 
 } else {
     sijil.style.maxWidth = "1000px";
@@ -1258,19 +1555,33 @@ if (jenisSijil.value === "Sijil Pelantikan") {
     document.getElementById("previewIC").style.color = "#000000";
 }
 
-    if (jenisSijil.value === "Sijil Pelantikan") {
-    document.getElementById("previewJenis").innerHTML =
-        "SIJIL<br>PELANTIKAN";
+   if (jenisSijil.value === "Sijil Pelantikan") {
+
+    const pilihanBaris =
+        document.querySelector('input[name="barisPelantikan"]:checked');
+
+    if (pilihanBaris && pilihanBaris.value === "sebaris") {
+        document.getElementById("previewJenis").textContent =
+            "SIJIL PELANTIKAN";
+    } else {
+        document.getElementById("previewJenis").innerHTML =
+            "SIJIL<br>PELANTIKAN";
+    }
+
 } else {
+
     document.getElementById("previewJenis").textContent =
         jenisSijil.value.toUpperCase();
-}
 
+}
     document.getElementById("previewSekolah").textContent =
         namaSekolah.value || "NAMA SEKOLAH / KELAB";
 
     document.getElementById("previewPengenalan").textContent =
         ayatPengenalan.value || "Dengan ini diperakui bahawa";
+
+document.getElementById("previewPengenalan").style.fontSize =
+    saizAyatPengenalan.value + "px";
 
     const penerima = senaraiPenerima.value
         .split("\n")
@@ -1279,14 +1590,26 @@ if (jenisSijil.value === "Sijil Pelantikan") {
     document.getElementById("previewNama").textContent =
         penerima[0] || "NAMA PENERIMA";
 
+document.getElementById("previewNama").style.fontSize =
+    saizNamaPenerima.value + "px";
+
     document.getElementById("previewAyatProgram").textContent =
         ayatProgram.value || "Telah menyertai";
+
+document.getElementById("previewAyatProgram").style.fontSize =
+    saizAyatProgram.value + "px";
 
     document.getElementById("previewProgram").textContent =
         namaProgram.value || "NAMA PROGRAM / PENCAPAIAN";
 
+document.getElementById("previewProgram").style.fontSize =
+    saizNamaProgram.value + "px";
+
 document.getElementById("previewAyatTambahan").textContent =
     ayatTambahan.value || "";
+
+document.getElementById("previewAyatTambahan").style.fontSize =
+    saizAyatTambahan.value + "px";
 
     let maklumat = [];
 
@@ -1321,6 +1644,9 @@ document.getElementById("previewAyatTambahan").textContent =
 
     document.getElementById("previewJawatan").textContent =
         jawatanPenandatangan.value || "JAWATAN";
+
+document.getElementById("previewJawatan").style.fontSize =
+    saizJawatan.value + "px";
 
     // Fon
     sijil.style.fontFamily = fontIsi.value;
@@ -1358,6 +1684,13 @@ noIC.rows = 2;
 noIC.placeholder = "Contoh: 010101-01-0101";
 panduanIC.textContent = "Masukkan nombor kad pengenalan penerima.";
 
+namaProgram.rows = 2;
+namaProgram.placeholder =
+    "Contoh: Program Kepimpinan Pelajar 2026";
+
+panduanNamaProgram.textContent =
+    "Masukkan nama program / pencapaian.";
+
     } else {
 
         labelPenerima.textContent = "Senarai Penerima";
@@ -1377,6 +1710,14 @@ noIC.placeholder =
 
 panduanIC.textContent =
     "Masukkan satu nombor kad pengenalan bagi setiap baris mengikut susunan nama penerima.";
+
+namaProgram.rows = 7;
+
+namaProgram.placeholder =
+    "Masukkan satu nama program / pencapaian bagi setiap baris";
+
+panduanNamaProgram.textContent =
+    "Masukkan satu nama program / pencapaian bagi setiap baris mengikut susunan nama penerima.";
 
     }
 }
@@ -1406,11 +1747,20 @@ function dapatkanSenaraiIC() {
         .filter(ic => ic !== "");
 }
 
+function dapatkanSenaraiProgram() {
+    return namaProgram.value
+        .split("\n")
+        .map(program => program.trim())
+        .filter(program => program !== "");
+}
+
 function paparPenerima() {
 
     const penerima = dapatkanSenaraiPenerima();
 
 const senaraiIC = dapatkanSenaraiIC();
+
+const senaraiProgram = dapatkanSenaraiProgram();
 
     if (penerima.length === 0) {
         document.getElementById("previewNama").textContent =
@@ -1433,6 +1783,9 @@ if (jenisSijil.value === "Sijil Pelantikan") {
         senaraiIC[indeksPenerima] || "-";
 }
 
+document.getElementById("previewProgram").textContent =
+    senaraiProgram[indeksPenerima] || "NAMA PROGRAM / PENCAPAIAN";
+
     statusPenerima.textContent =
         "Penerima " + (indeksPenerima + 1) + " / " + penerima.length;
 }
@@ -1444,6 +1797,8 @@ function binaBatchSijil() {
     const penerima = dapatkanSenaraiPenerima();
 
 const senaraiIC = dapatkanSenaraiIC();
+
+const senaraiProgram = dapatkanSenaraiProgram();
 
     batchSijil.innerHTML = "";
 
@@ -1466,6 +1821,12 @@ if (jenisSijil.value === "Sijil Pelantikan") {
     icDalamSijil.textContent =
         senaraiIC[index] || "-";
 }
+
+const programDalamSijil =
+    salinanSijil.querySelector("#previewProgram");
+
+programDalamSijil.textContent =
+    senaraiProgram[index] || "NAMA PROGRAM / PENCAPAIAN";
 
         batchSijil.appendChild(salinanSijil);
     });
@@ -1497,6 +1858,95 @@ senaraiPenerima.addEventListener("input", function () {
 noIC.addEventListener("input", function () {
     paparPenerima();
 });
+
+namaProgram.addEventListener("input", function () {
+    paparPenerima();
+});
+
+// Pantau pilihan susunan tajuk Sijil Pelantikan
+document.querySelectorAll('input[name="barisPelantikan"]').forEach(function(pilihan) {
+    pilihan.addEventListener("change", updatePreview);
+});
+
+// Kawalan saiz tajuk Sijil Pelantikan
+saizTajukPelantikan.addEventListener("input", function () {
+
+    nilaiSaizTajukPelantikan.textContent =
+        this.value + " px";
+
+    document.getElementById("previewJenis").style.fontSize =
+        this.value + "px";
+
+});
+
+// Kawalan saiz ayat pengenalan
+saizAyatPengenalan.addEventListener("input", function () {
+
+    nilaiSaizAyatPengenalan.textContent =
+        this.value + " px";
+
+    document.getElementById("previewPengenalan").style.fontSize =
+        this.value + "px";
+
+});
+
+// Kawalan saiz ayat sebelum nama program
+
+
+saizAyatProgram.addEventListener("input", function () {
+
+    nilaiSaizAyatProgram.textContent =
+        this.value + " px";
+
+    document.getElementById("previewAyatProgram").style.fontSize =
+        this.value + "px";
+
+});
+
+// Kawalan saiz nama program / pencapaian
+saizNamaProgram.addEventListener("input", function () {
+
+    nilaiSaizNamaProgram.textContent =
+        this.value + " px";
+
+    document.getElementById("previewProgram").style.fontSize =
+        this.value + "px";
+
+});
+
+// Kawalan saiz ayat selepas nama program
+saizAyatTambahan.addEventListener("input", function () {
+
+    nilaiSaizAyatTambahan.textContent =
+        this.value + " px";
+
+    document.getElementById("previewAyatTambahan").style.fontSize =
+        this.value + "px";
+
+});
+
+// Kawalan saiz nama penerima
+
+// Kawalan saiz No. Kad Pengenalan
+saizIC.addEventListener("input", function () {
+
+    nilaiSaizIC.textContent =
+        this.value + " px";
+
+    document.getElementById("previewIC").style.fontSize =
+        this.value + "px";
+
+});
+
+saizNamaPenerima.addEventListener("input", function () {
+
+    nilaiSaizNamaPenerima.textContent =
+        this.value + " px";
+
+    document.getElementById("previewNama").style.fontSize =
+        this.value + "px";
+
+});
     
 // Pantau perubahan pengguna
     [
@@ -1524,6 +1974,21 @@ noIC.addEventListener("input", function () {
         elemen.addEventListener("change", updatePreview);
     });
 
+// Kawalan saiz logo
+const saizLogo = document.getElementById("saizLogo");
+const nilaiSaizLogo = document.getElementById("nilaiSaizLogo");
+
+saizLogo.addEventListener("input", function () {
+    const logo = document.querySelector("#previewLogo img");
+
+    nilaiSaizLogo.textContent = this.value + " px";
+
+    if (logo) {
+        logo.style.width = this.value + "px";
+        logo.style.height = "auto";
+    }
+});
+
     // Upload logo sekolah / kelab
     const logoSekolah = document.getElementById("logoSekolah");
 
@@ -1534,9 +1999,10 @@ noIC.addEventListener("input", function () {
             const reader = new FileReader();
 
             reader.onload = function (e) {
-                document.getElementById("previewLogo").innerHTML =
-                    '<img src="' + e.target.result + '" alt="Logo">';
-            };
+    document.getElementById("previewLogo").innerHTML =
+    '<img src="' + e.target.result + '" alt="Logo" style="width:' +
+    saizLogo.value + 'px; height:auto; object-fit:contain;">';
+};
 
             reader.readAsDataURL(file);
         }
@@ -1574,12 +2040,40 @@ logoWatermark.addEventListener("change", function () {
 
             reader.onload = function (e) {
                 document.getElementById("previewTandatangan").innerHTML =
-                    '<img src="' + e.target.result + '" alt="Tandatangan">';
+                    '<img src="' + e.target.result + '" alt="Tandatangan" style="width:' +
+saizTandatangan.value + 'px; height:auto; object-fit:contain;">';
             };
 
             reader.readAsDataURL(file);
         }
     });
+
+// Kawalan saiz tandatangan
+saizTandatangan.addEventListener("input", function () {
+
+    nilaiSaizTandatangan.textContent =
+        this.value + " px";
+
+    const imejTandatangan =
+        document.querySelector("#previewTandatangan img");
+
+    if (imejTandatangan) {
+        imejTandatangan.style.width = this.value + "px";
+        imejTandatangan.style.height = "auto";
+    }
+
+});
+
+// Kawalan saiz jawatan penandatangan
+saizJawatan.addEventListener("input", function () {
+
+    nilaiSaizJawatan.textContent =
+        this.value + " px";
+
+    document.getElementById("previewJawatan").style.fontSize =
+        this.value + "px";
+
+});
 
 // Fungsi Cetak Sijil
 const btnCetak = document.getElementById("btnCetak");
